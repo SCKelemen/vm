@@ -51,8 +51,25 @@ type OpCode uint8
 
 const (
 	NOP OpCode = iota
+
 	CONST
+
 	ADD
+	SUB
+	MUL
+	QUO
+
+	TRUE
+	FALSE
+
+	EQL
+	NEQL
+
+	LT
+	LTE
+
+	GT
+	GTE
 )
 
 type Definition struct {
@@ -61,9 +78,26 @@ type Definition struct {
 }
 
 var definitions = map[OpCode]*Definition{
-	NOP:   {"NOP", []int{}},
+	NOP: {"NOP", []int{}},
+
 	CONST: {"CONST", []int{2}},
-	ADD:   {"ADD", []int{}},
+
+	ADD: {"ADD", []int{}},
+	SUB: {"SUB", []int{}},
+	MUL: {"MUL", []int{}},
+	QUO: {"QUO", []int{}},
+
+	TRUE:  {"TRUE", []int{}},
+	FALSE: {"FALSE", []int{}},
+
+	EQL:  {"EQL", []int{}},
+	NEQL: {"NEQL", []int{}},
+
+	GT:  {"GT", []int{}},
+	GTE: {"GTE", []int{}},
+
+	LT:  {"LT", []int{}},
+	LTE: {"LTE", []int{}},
 }
 
 func Lookup(op byte) (*Definition, error) {
